@@ -68,7 +68,7 @@
            DISPLAY "Enter a positive integer:".
            ACCEPT WS-NUMBER.
 
-           DISPLAY "Enter the name of an singular animal:".
+           DISPLAY "Enter the name of a singular animal:".
            ACCEPT WS-ANIMAL.
 
            DISPLAY "ONCE THERE WAS A "

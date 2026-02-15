@@ -59,65 +59,70 @@
 
 
        PROCEDURE DIVISION.
-           Display " ".
+           DISPLAY " ".
            DISPLAY "Bill Amount:".
            ACCEPT WS-BILL-TOTAL.
            MOVE WS-BILL-TOTAL TO WS-DISPLAY.
 
-           Display "# of People:".
+           DISPLAY "# of People:".
            ACCEPT WS-PPL-TOTAL.
-           MOVE WS-PPL-TOTAL TO WS-PPL-TOTAL-DISPLAY.
+           
+           IF WS-PPL-TOTAL = 0
+               DISPLAY 'CANNOT HAVE 0 PEOPLE'
+           ELSE
+           MOVE WS-PPL-TOTAL TO WS-PPL-TOTAL-DISPLAY
+           
+           DISPLAY " "
 
-           Display " ".
+           DISPLAY "Bill amount: " WS-DISPLAY
+           DISPLAY "Number of people: " WS-PPL-TOTAL-DISPLAY
 
-           DISPLAY "Bill amount: " WS-DISPLAY.
-           DISPLAY "Number of people: " WS-PPL-TOTAL-DISPLAY.
+           DISPLAY " "
 
-           Display " ".
+           DISPLAY "--- Tip Breakdown ---"
+           COMPUTE WS-TIP = WS-BILL-TOTAL * 0.15
+           MOVE WS-TIP TO WS-DISPLAY
+           COMPUTE WS-BILL-TIP-TOTAL = WS-BILL-TOTAL + WS-TIP
+           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY2
+           DISPLAY "15% tip: " WS-DISPLAY " Total: " WS-DISPLAY2
 
-           Display "--- Tip Breakdown ---".
-           COMPUTE WS-TIP = WS-BILL-TOTAL * 0.15.
-           MOVE WS-TIP TO WS-DISPLAY.
-           COMPUTE WS-BILL-TIP-TOTAL = WS-BILL-TOTAL + WS-TIP.
-           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY2.
-           DISPLAY "15% tip: " WS-DISPLAY " Total: " WS-DISPLAY2.
+           COMPUTE WS-TIP = WS-BILL-TOTAL * 0.20
+           MOVE WS-TIP TO WS-DISPLAY
+           COMPUTE WS-BILL-TIP-TOTAL = WS-BILL-TOTAL + WS-TIP
+           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY2
+           DISPLAY "20% tip: " WS-DISPLAY " Total: " WS-DISPLAY2
 
-           COMPUTE WS-TIP = WS-BILL-TOTAL * 0.20.
-           MOVE WS-TIP TO WS-DISPLAY.
-           COMPUTE WS-BILL-TIP-TOTAL = WS-BILL-TOTAL + WS-TIP.
-           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY2.
-           DISPLAY "20% tip: " WS-DISPLAY " Total: " WS-DISPLAY2.
+           COMPUTE WS-TIP = WS-BILL-TOTAL * 0.25
+           MOVE WS-TIP TO WS-DISPLAY
+           COMPUTE WS-BILL-TIP-TOTAL = WS-BILL-TOTAL + WS-TIP
+           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY2
+           DISPLAY "25% tip: " WS-DISPLAY " Total: " WS-DISPLAY2
 
-           COMPUTE WS-TIP = WS-BILL-TOTAL * 0.25.
-           MOVE WS-TIP TO WS-DISPLAY.
-           COMPUTE WS-BILL-TIP-TOTAL = WS-BILL-TOTAL + WS-TIP.
-           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY2.
-           DISPLAY "25% tip: " WS-DISPLAY " Total: " WS-DISPLAY2.
+           DISPLAY ' '
 
-           DISPLAY ' '.
-
-           DISPLAY "--- Per Person ---".
+           DISPLAY "--- Per Person ---"
            COMPUTE WS-BILL-TIP-TOTAL = (WS-BILL-TOTAL * 1.15) /
-              WS-PPL-TOTAL.
-           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY.
-           DISPLAY 'At 15%: ' WS-DISPLAY ' each'.
+              WS-PPL-TOTAL
+           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY
+           DISPLAY 'At 15%: ' WS-DISPLAY ' each'
 
            COMPUTE WS-BILL-TIP-TOTAL = (WS-BILL-TOTAL * 1.20) /
-              WS-PPL-TOTAL.
-           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY.
-           DISPLAY 'At 20%: ' WS-DISPLAY ' each'.
+              WS-PPL-TOTAL
+           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY
+           DISPLAY 'At 20%: ' WS-DISPLAY ' each'
 
            COMPUTE WS-BILL-TIP-TOTAL = (WS-BILL-TOTAL * 1.25) /
-              WS-PPL-TOTAL.
-           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY.
-           DISPLAY 'At 25%: ' WS-DISPLAY ' each'.
+              WS-PPL-TOTAL
+           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY
+           DISPLAY 'At 25%: ' WS-DISPLAY ' each'
 
-           DISPLAY ' '.
+           DISPLAY ' '
 
            IF WS-BILL-TOTAL > 100
               DISPLAY 'Thanks for the generous visit!'
-           END-IF.
+           END-IF
            IF WS-BILL-TOTAL < 20
               DISPLAY 'Quick bite today!'
+           END-IF
            END-IF.
            STOP RUN.
