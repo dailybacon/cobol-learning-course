@@ -68,61 +68,62 @@
            ACCEPT WS-PPL-TOTAL.
            
            IF WS-PPL-TOTAL = 0
-               DISPLAY 'CANNOT HAVE 0 PEOPLE'
+                  DISPLAY 'CANNOT HAVE 0 PEOPLE'
            ELSE
-           MOVE WS-PPL-TOTAL TO WS-PPL-TOTAL-DISPLAY
-           
-           DISPLAY " "
-
-           DISPLAY "Bill amount: " WS-DISPLAY
-           DISPLAY "Number of people: " WS-PPL-TOTAL-DISPLAY
-
-           DISPLAY " "
-
-           DISPLAY "--- Tip Breakdown ---"
-           COMPUTE WS-TIP = WS-BILL-TOTAL * 0.15
-           MOVE WS-TIP TO WS-DISPLAY
-           COMPUTE WS-BILL-TIP-TOTAL = WS-BILL-TOTAL + WS-TIP
-           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY2
-           DISPLAY "15% tip: " WS-DISPLAY " Total: " WS-DISPLAY2
-
-           COMPUTE WS-TIP = WS-BILL-TOTAL * 0.20
-           MOVE WS-TIP TO WS-DISPLAY
-           COMPUTE WS-BILL-TIP-TOTAL = WS-BILL-TOTAL + WS-TIP
-           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY2
-           DISPLAY "20% tip: " WS-DISPLAY " Total: " WS-DISPLAY2
-
-           COMPUTE WS-TIP = WS-BILL-TOTAL * 0.25
-           MOVE WS-TIP TO WS-DISPLAY
-           COMPUTE WS-BILL-TIP-TOTAL = WS-BILL-TOTAL + WS-TIP
-           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY2
-           DISPLAY "25% tip: " WS-DISPLAY " Total: " WS-DISPLAY2
-
-           DISPLAY ' '
-
-           DISPLAY "--- Per Person ---"
-           COMPUTE WS-BILL-TIP-TOTAL = (WS-BILL-TOTAL * 1.15) /
-              WS-PPL-TOTAL
-           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY
-           DISPLAY 'At 15%: ' WS-DISPLAY ' each'
-
-           COMPUTE WS-BILL-TIP-TOTAL = (WS-BILL-TOTAL * 1.20) /
-              WS-PPL-TOTAL
-           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY
-           DISPLAY 'At 20%: ' WS-DISPLAY ' each'
-
-           COMPUTE WS-BILL-TIP-TOTAL = (WS-BILL-TOTAL * 1.25) /
-              WS-PPL-TOTAL
-           MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY
-           DISPLAY 'At 25%: ' WS-DISPLAY ' each'
-
-           DISPLAY ' '
-
-           IF WS-BILL-TOTAL > 100
-              DISPLAY 'Thanks for the generous visit!'
-           END-IF
-           IF WS-BILL-TOTAL < 20
-              DISPLAY 'Quick bite today!'
-           END-IF
+                  MOVE WS-PPL-TOTAL TO WS-PPL-TOTAL-DISPLAY
+                  
+                  DISPLAY " "
+       
+                  DISPLAY "Bill amount: " WS-DISPLAY
+                  DISPLAY "Number of people: " WS-PPL-TOTAL-DISPLAY
+       
+                  DISPLAY " "
+       
+                  DISPLAY "--- Tip Breakdown ---"
+                  COMPUTE WS-TIP = WS-BILL-TOTAL * 0.15
+                  MOVE WS-TIP TO WS-DISPLAY
+                  COMPUTE WS-BILL-TIP-TOTAL = WS-BILL-TOTAL + WS-TIP
+                  MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY2
+                  DISPLAY "15% tip: " WS-DISPLAY " Total: " WS-DISPLAY2
+       
+                  COMPUTE WS-TIP = WS-BILL-TOTAL * 0.20
+                  MOVE WS-TIP TO WS-DISPLAY
+                  COMPUTE WS-BILL-TIP-TOTAL = WS-BILL-TOTAL + WS-TIP
+                  MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY2
+                  DISPLAY "20% tip: " WS-DISPLAY " Total: " WS-DISPLAY2
+       
+                  COMPUTE WS-TIP = WS-BILL-TOTAL * 0.25
+                  MOVE WS-TIP TO WS-DISPLAY
+                  COMPUTE WS-BILL-TIP-TOTAL = WS-BILL-TOTAL + WS-TIP
+                  MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY2
+                  DISPLAY "25% tip: " WS-DISPLAY " Total: " WS-DISPLAY2
+       
+                  DISPLAY ' '
+       
+                  DISPLAY "--- Per Person ---"
+                  COMPUTE WS-BILL-TIP-TOTAL = (WS-BILL-TOTAL * 1.15) /
+                     WS-PPL-TOTAL
+                  MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY
+                  DISPLAY 'At 15%: ' WS-DISPLAY ' each'
+       
+                  COMPUTE WS-BILL-TIP-TOTAL = (WS-BILL-TOTAL * 1.20) /
+                     WS-PPL-TOTAL
+                  MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY
+                  DISPLAY 'At 20%: ' WS-DISPLAY ' each'
+       
+                  COMPUTE WS-BILL-TIP-TOTAL = (WS-BILL-TOTAL * 1.25) /
+                     WS-PPL-TOTAL
+                  MOVE WS-BILL-TIP-TOTAL TO WS-DISPLAY
+                  DISPLAY 'At 25%: ' WS-DISPLAY ' each'
+       
+                  DISPLAY ' '
+       
+                  IF WS-BILL-TOTAL > 100
+                     DISPLAY 'Thanks for the generous visit!'
+                  END-IF
+                  
+                  IF WS-BILL-TOTAL < 20
+                     DISPLAY 'Quick bite today!'
+                  END-IF
            END-IF.
            STOP RUN.
